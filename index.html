@@ -34,7 +34,7 @@ body{
     radial-gradient(circle at 85% 20%,rgba(255,61,129,.13),transparent 28%),
     var(--bg);
   color:var(--text);
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   line-height:1.6;
 }
 
@@ -303,6 +303,8 @@ h2{
   margin-top:15px;
 }
 
+/* UPLOAD BOX */
+
 .upload-box{
   margin:40px auto;
   max-width:650px;
@@ -313,8 +315,38 @@ h2{
   text-align:center;
 }
 
-.upload-box input{
+.upload-box input[type="file"]{
   display:none;
+}
+
+.form-input,
+.form-textarea{
+  width:100%;
+  margin-top:15px;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:rgba(255,255,255,.06);
+  color:white;
+  outline:none;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder{
+  color:#9292a8;
+}
+
+.form-input:focus,
+.form-textarea:focus{
+  border-color:var(--violet);
+  box-shadow:0 0 0 3px rgba(140,92,255,.12);
+}
+
+.form-textarea{
+  min-height:100px;
+  resize:vertical;
 }
 
 .upload-button{
@@ -325,10 +357,42 @@ h2{
   font-weight:700;
   cursor:pointer;
   margin-top:18px;
+  border:none;
+  color:white;
 }
 
 .upload-button:hover{
   opacity:.9;
+}
+
+.submit-button{
+  display:inline-block;
+  width:100%;
+  padding:15px 22px;
+  border-radius:13px;
+  background:linear-gradient(100deg,var(--violet),var(--pink));
+  font-weight:700;
+  cursor:pointer;
+  margin-top:18px;
+  border:none;
+  color:white;
+  font-size:15px;
+}
+
+.submit-button:hover{
+  opacity:.9;
+}
+
+.submit-button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+.file-name{
+  color:#aaaabd;
+  font-size:12px;
+  margin-top:10px;
+  min-height:18px;
 }
 
 .upload-note{
@@ -341,7 +405,10 @@ h2{
   margin-top:15px;
   font-size:13px;
   color:#ddd;
+  min-height:20px;
 }
+
+/* MEMORY WALL */
 
 .memory-wall{
   columns:3 250px;
@@ -362,6 +429,23 @@ h2{
   width:100%;
   display:block;
   border-radius:13px;
+}
+
+.memory-info{
+  padding:12px 7px 5px;
+}
+
+.memory-name{
+  font-weight:700;
+  font-size:15px;
+}
+
+.memory-message{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:5px;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
 }
 
 /* END */
@@ -408,7 +492,6 @@ footer{
   .powers{
     grid-template-columns:1fr 1fr;
   }
-
 }
 
 @media(max-width:520px){
@@ -440,7 +523,6 @@ footer{
   .story-card{
     padding:25px;
   }
-
 }
 </style>
 </head>
@@ -729,7 +811,7 @@ footer{
     </div>
 
 
-    <!-- UPLOAD -->
+    <!-- UPLOAD FORM -->
 
     <div class="upload-box">
 
@@ -737,17 +819,40 @@ footer{
         Add your internship memory 📸
       </strong>
 
-      <br>
+      <input
+        id="nameInput"
+        class="form-input"
+        type="text"
+        maxlength="60"
+        placeholder="Your name ✨"
+      >
+
+      <textarea
+        id="messageInput"
+        class="form-textarea"
+        maxlength="300"
+        placeholder="Tell us about your memory... 💭"
+      ></textarea>
 
       <label class="upload-button" for="photoInput">
-        + Add Your Memory
+        📸 Choose Your Photo
       </label>
 
       <input
         id="photoInput"
         type="file"
-        accept="image/*"
+        accept="image/jpeg,image/png,image/webp"
       >
+
+      <div id="fileName" class="file-name"></div>
+
+      <button
+        id="submitMemory"
+        class="submit-button"
+        type="button"
+      >
+        Add Your Memory ❤️
+      </button>
 
       <div class="upload-note">
         JPG, PNG or WEBP • Maximum 10 MB
@@ -760,8 +865,7 @@ footer{
 
     <!-- WALL -->
 
-    <div id="memoryWall" class="memory-wall">
-    </div>
+    <div id="memoryWall" class="memory-wall"></div>
 
   </div>
 
@@ -801,7 +905,6 @@ footer{
 
 </main>
 
-
 <footer>
   Be Extraordinary • iNova Summer Internship Program 2026
 </footer>
@@ -822,6 +925,9 @@ const SUPABASE_KEY =
 const BUCKET =
   "internship-memories";
 
+const TABLE =
+  "memories";
+
 const supabaseClient =
   window.supabase.createClient(
     SUPABASE_URL,
@@ -833,8 +939,17 @@ const supabaseClient =
    ELEMENTS
 ============================== */
 
+const nameInput =
+  document.getElementById("nameInput");
+
+const messageInput =
+  document.getElementById("messageInput");
+
 const photoInput =
   document.getElementById("photoInput");
+
+const submitButton =
+  document.getElementById("submitMemory");
 
 const memoryWall =
   document.getElementById("memoryWall");
@@ -842,35 +957,98 @@ const memoryWall =
 const statusText =
   document.getElementById("status");
 
+const fileNameText =
+  document.getElementById("fileName");
+
 
 /* ==============================
-   SHOW IMAGE
+   FILE NAME PREVIEW
 ============================== */
 
-function showMemory(url){
+photoInput.addEventListener("change", function(){
+
+  const file = this.files[0];
+
+  if(file){
+
+    fileNameText.textContent =
+      "Selected: " + file.name;
+
+  }else{
+
+    fileNameText.textContent = "";
+
+  }
+
+});
+
+
+/* ==============================
+   SHOW MEMORY
+============================== */
+
+function showMemory(memory){
 
   const card =
     document.createElement("div");
 
   card.className = "memory";
 
+
   const img =
     document.createElement("img");
 
-  img.src = url;
+  img.src = memory.image_url;
 
   img.loading = "lazy";
 
   img.alt = "Internship memory";
 
+
+  const info =
+    document.createElement("div");
+
+  info.className = "memory-info";
+
+
+  const name =
+    document.createElement("div");
+
+  name.className = "memory-name";
+
+  name.textContent =
+    memory.name || "Anonymous";
+
+
+  const message =
+    document.createElement("div");
+
+  message.className = "memory-message";
+
+  message.textContent =
+    memory.message || "";
+
+
+  info.appendChild(name);
+
+  if(memory.message){
+
+    info.appendChild(message);
+
+  }
+
+
   card.appendChild(img);
 
+  card.appendChild(info);
+
   memoryWall.prepend(card);
+
 }
 
 
 /* ==============================
-   LOAD OLD MEMORIES
+   LOAD MEMORIES
 ============================== */
 
 async function loadMemories(){
@@ -882,19 +1060,16 @@ async function loadMemories(){
     error
   } =
   await supabaseClient
-    .storage
-    .from(BUCKET)
-    .list("", {
-      limit: 100,
-      sortBy: {
-        column: "created_at",
-        order: "desc"
-      }
+    .from(TABLE)
+    .select("id,name,message,image_url,created_at")
+    .order("created_at", {
+      ascending:false
     });
+
 
   if(error){
 
-    console.error(error);
+    console.error("Load error:",error);
 
     statusText.textContent =
       "Couldn't load memories right now.";
@@ -903,21 +1078,14 @@ async function loadMemories(){
   }
 
 
-  data.forEach(file => {
+  if(!data) return;
 
-    if(!file.name) return;
 
-    const {
-      data: publicData
-    } =
-    supabaseClient
-      .storage
-      .from(BUCKET)
-      .getPublicUrl(file.name);
+  data.forEach(memory => {
 
-    if(publicData?.publicUrl){
+    if(memory.image_url){
 
-      showMemory(publicData.publicUrl);
+      showMemory(memory);
 
     }
 
@@ -927,116 +1095,231 @@ async function loadMemories(){
 
 
 /* ==============================
-   UPLOAD
+   SUBMIT MEMORY
 ============================== */
 
-photoInput.addEventListener(
-  "change",
+submitButton.addEventListener(
+  "click",
   async function(){
 
+    const name =
+      nameInput.value.trim();
+
+    const message =
+      messageInput.value.trim();
+
     const file =
-      this.files[0];
-
-    if(!file) return;
+      photoInput.files[0];
 
 
-    /* CHECK TYPE */
+    /* VALIDATION */
+
+    if(!name){
+
+      statusText.textContent =
+        "Please enter your name ✨";
+
+      nameInput.focus();
+
+      return;
+    }
+
+
+    if(!message){
+
+      statusText.textContent =
+        "Please write a memory 💭";
+
+      messageInput.focus();
+
+      return;
+    }
+
+
+    if(!file){
+
+      statusText.textContent =
+        "Please choose a photo 📸";
+
+      return;
+    }
+
 
     if(!file.type.startsWith("image/")){
 
       statusText.textContent =
         "Please choose an image.";
 
-      this.value = "";
-
       return;
     }
 
-
-    /* CHECK SIZE */
 
     if(file.size > 10 * 1024 * 1024){
 
       statusText.textContent =
         "Image must be smaller than 10 MB.";
 
-      this.value = "";
-
       return;
     }
 
+
+    /* DISABLE BUTTON */
+
+    submitButton.disabled = true;
 
     statusText.textContent =
       "Uploading your memory... 📸";
 
 
-    /* UNIQUE FILE NAME */
+    try{
 
-    const extension =
-      file.name.split(".").pop();
+      /* =========================
+         UNIQUE FILE NAME
+      ========================= */
 
-    const fileName =
-      Date.now() +
-      "-" +
-      Math.random()
-        .toString(36)
-        .substring(2,8) +
-      "." +
-      extension;
+      const extension =
+        file.name.split(".").pop().toLowerCase();
 
-
-    /* UPLOAD */
-
-    const {
-      error
-    } =
-    await supabaseClient
-      .storage
-      .from(BUCKET)
-      .upload(
-        fileName,
-        file,
-        {
-          cacheControl: "3600",
-          upsert: false,
-          contentType: file.type
-        }
-      );
+      const fileName =
+        Date.now() +
+        "-" +
+        Math.random()
+          .toString(36)
+          .substring(2,8) +
+        "." +
+        extension;
 
 
-    if(error){
+      /* =========================
+         UPLOAD IMAGE
+      ========================= */
 
-      console.error(error);
-
-      statusText.textContent =
-        "Upload failed. Please try again.";
-
-      return;
-    }
-
-
-    /* GET PUBLIC URL */
-
-    const {
-      data
-    } =
-    supabaseClient
-      .storage
-      .from(BUCKET)
-      .getPublicUrl(fileName);
+      const {
+        error: uploadError
+      } =
+      await supabaseClient
+        .storage
+        .from(BUCKET)
+        .upload(
+          fileName,
+          file,
+          {
+            cacheControl:"3600",
+            upsert:false,
+            contentType:file.type
+          }
+        );
 
 
-    if(data?.publicUrl){
+      if(uploadError){
 
-      showMemory(data.publicUrl);
+        throw uploadError;
+
+      }
+
+
+      /* =========================
+         GET PUBLIC URL
+      ========================= */
+
+      const {
+        data:publicData
+      } =
+      supabaseClient
+        .storage
+        .from(BUCKET)
+        .getPublicUrl(fileName);
+
+
+      const imageUrl =
+        publicData?.publicUrl;
+
+
+      if(!imageUrl){
+
+        throw new Error(
+          "Could not create image URL."
+        );
+
+      }
+
+
+      /* =========================
+         SAVE MEMORY
+      ========================= */
+
+      const {
+        data:memoryData,
+        error:databaseError
+      } =
+      await supabaseClient
+        .from(TABLE)
+        .insert([
+          {
+            name:name,
+            message:message,
+            image_url:imageUrl
+          }
+        ])
+        .select()
+        .single();
+
+
+      if(databaseError){
+
+        console.error(
+          "Database error:",
+          databaseError
+        );
+
+        throw databaseError;
+
+      }
+
+
+      /* =========================
+         SHOW NEW MEMORY
+      ========================= */
+
+      if(memoryData){
+
+        showMemory(memoryData);
+
+      }
+
+
+      /* =========================
+         RESET FORM
+      ========================= */
+
+      nameInput.value = "";
+
+      messageInput.value = "";
+
+      photoInput.value = "";
+
+      fileNameText.textContent = "";
+
 
       statusText.textContent =
         "Your memory is now on the wall! ❤️";
 
+
+    }catch(error){
+
+      console.error(
+        "Memory upload error:",
+        error
+      );
+
+      statusText.textContent =
+        "Something went wrong. Please try again.";
+
+    }finally{
+
+      submitButton.disabled = false;
+
     }
-
-
-    this.value = "";
 
   }
 );
