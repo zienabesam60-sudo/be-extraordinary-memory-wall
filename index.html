@@ -35,7 +35,6 @@ body{
     radial-gradient(circle at 15% 10%,rgba(140,92,255,.18),transparent 30%),
     radial-gradient(circle at 85% 20%,rgba(255,61,129,.13),transparent 28%),
     var(--bg);
-
   color:var(--text);
   font-family:Arial,sans-serif;
   line-height:1.6;
@@ -51,7 +50,6 @@ a{
   margin:auto;
 }
 
-
 /* NAV */
 
 nav{
@@ -60,16 +58,13 @@ nav{
   left:0;
   right:0;
   z-index:20;
-
   background:rgba(8,8,17,.78);
   backdrop-filter:blur(15px);
-
   border-bottom:1px solid var(--line);
 }
 
 .nav-inner{
   height:70px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -87,7 +82,6 @@ nav{
 .navlinks{
   display:flex;
   gap:22px;
-
   font-size:13px;
   color:#d8d8e8;
 }
@@ -96,107 +90,74 @@ nav{
   color:white;
 }
 
-
 /* HERO */
 
 .hero{
   min-height:100vh;
-
   display:flex;
   align-items:center;
-
   padding:120px 0 80px;
 }
 
 .hero-grid{
   display:grid;
   grid-template-columns:1.1fr .9fr;
-
   gap:55px;
-
   align-items:center;
 }
 
 .badge{
   display:inline-block;
-
   padding:8px 13px;
-
   border:1px solid var(--line);
   border-radius:999px;
-
   background:rgba(255,255,255,.04);
-
   font-size:12px;
   color:#ddd;
 }
 
 h1{
   font-size:clamp(48px,7vw,85px);
-
   line-height:.95;
-
   letter-spacing:-.06em;
-
   margin:25px 0;
 }
 
 .gradient{
-  background:linear-gradient(
-    100deg,
-    #fff,
-    #d6c7ff,
-    #ff6d9e
-  );
-
+  background:linear-gradient(100deg,#fff,#d6c7ff,#ff6d9e);
   -webkit-background-clip:text;
   background-clip:text;
-
   color:transparent;
 }
 
 .hero-text{
   color:var(--muted);
-
   font-size:18px;
-
   max-width:650px;
 }
 
 .quote{
   margin-top:25px;
-
   padding-left:18px;
-
   border-left:2px solid var(--pink);
-
   color:#eee;
 }
 
 .hero-photo{
   padding:10px;
-
   border:1px solid var(--line);
-
   border-radius:25px;
-
   background:rgba(255,255,255,.05);
-
   transform:rotate(2deg);
 }
 
 .hero-photo img{
   width:100%;
-
   aspect-ratio:4/5;
-
   object-fit:cover;
-
   border-radius:18px;
-
   display:block;
 }
-
 
 /* SECTIONS */
 
@@ -206,34 +167,24 @@ section{
 
 .kicker{
   color:#aaaabd;
-
   font-size:12px;
-
   text-transform:uppercase;
-
   letter-spacing:.18em;
-
   margin-bottom:12px;
 }
 
 h2{
   font-size:clamp(35px,5vw,58px);
-
   line-height:1;
-
   letter-spacing:-.05em;
-
   margin-bottom:20px;
 }
 
 .lead{
   color:var(--muted);
-
   max-width:750px;
-
   font-size:17px;
 }
-
 
 /* TIMELINE */
 
@@ -243,97 +194,72 @@ h2{
 
 .step{
   border-left:1px solid #6e58c9;
-
   padding:0 0 45px 30px;
-
   margin-left:10px;
 }
 
 .step h3{
   font-size:24px;
-
   margin-bottom:7px;
 }
 
 .step p{
   color:var(--muted);
-
   max-width:750px;
 }
-
 
 /* POWERS */
 
 .powers{
   display:grid;
-
   grid-template-columns:repeat(5,1fr);
-
   gap:12px;
-
   margin-top:40px;
 }
 
 .power{
   padding:22px 17px;
-
   min-height:150px;
-
   border:1px solid var(--line);
-
   border-radius:18px;
-
   background:var(--card);
 }
 
 .power-icon{
   font-size:25px;
-
   margin-bottom:20px;
 }
 
 .power h3{
   font-size:16px;
-
   margin-bottom:5px;
 }
 
 .power p{
   color:var(--muted);
-
   font-size:12px;
 }
-
 
 /* PEOPLE */
 
 .people-grid{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   gap:18px;
-
   margin-top:40px;
 }
 
 .gallery{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   gap:15px;
 }
 
 .gallery img{
   width:100%;
-
   height:240px;
-
   object-fit:cover;
-
   border-radius:18px;
-
   border:1px solid var(--line);
 }
 
@@ -343,41 +269,30 @@ h2{
 
 .story-card{
   padding:35px;
-
   border:1px solid var(--line);
-
   border-radius:24px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(140,92,255,.13),
-      rgba(255,61,129,.07)
-    );
-
+  background:linear-gradient(
+    145deg,
+    rgba(140,92,255,.13),
+    rgba(255,61,129,.07)
+  );
   display:flex;
-
   flex-direction:column;
-
   justify-content:center;
 }
 
 .story-card blockquote{
   font-size:32px;
-
   line-height:1.1;
-
   font-weight:700;
 }
 
 .story-card p{
   color:var(--muted);
-
   margin-top:20px;
 }
 
-
-/* MEMORY SECTION */
+/* MEMORY WALL */
 
 .memory-section{
   background:rgba(255,255,255,.015);
@@ -385,101 +300,40 @@ h2{
 
 .memory-header{
   text-align:center;
-
   max-width:750px;
-
   margin:auto;
 }
 
 .memory-header p{
   color:var(--muted);
-
   margin-top:15px;
 }
-
-
-/* FORM */
 
 .upload-box{
   margin:40px auto;
-
   max-width:650px;
-
   padding:35px;
-
   border:1px dashed rgba(255,255,255,.25);
-
   border-radius:25px;
-
   background:rgba(255,255,255,.04);
-
   text-align:center;
 }
 
-.form-input,
-.form-textarea{
-  width:100%;
-
-  margin-top:15px;
-
-  padding:14px 16px;
-
-  border:1px solid var(--line);
-
-  border-radius:13px;
-
-  background:rgba(255,255,255,.06);
-
-  color:white;
-
-  outline:none;
-
-  font-family:Arial,sans-serif;
-
-  font-size:14px;
-}
-
-.form-input::placeholder,
-.form-textarea::placeholder{
-  color:#9292a8;
-}
-
-.form-input:focus,
-.form-textarea:focus{
-  border-color:var(--violet);
-
-  box-shadow:
-    0 0 0 3px rgba(140,92,255,.12);
-}
-
-.form-textarea{
-  min-height:110px;
-
-  resize:vertical;
-}
-
-.upload-box input[type="file"]{
+.upload-box input{
   display:none;
 }
 
 .upload-button{
   display:inline-block;
-
   padding:14px 22px;
-
   border-radius:13px;
-
-  background:
-    linear-gradient(
-      100deg,
-      var(--violet),
-      var(--pink)
-    );
-
+  background:linear-gradient(
+    100deg,
+    var(--violet),
+    var(--pink)
+  );
   font-weight:700;
-
   cursor:pointer;
-
   margin-top:18px;
 }
 
@@ -487,174 +341,87 @@ h2{
   opacity:.9;
 }
 
-.file-name{
-  color:#aaaabd;
-
-  font-size:12px;
-
-  margin-top:10px;
-
-  min-height:18px;
-}
-
-.submit-button{
-  display:block;
-
-  width:100%;
-
-  padding:15px 22px;
-
-  border-radius:13px;
-
-  background:
-    linear-gradient(
-      100deg,
-      var(--violet),
-      var(--pink)
-    );
-
-  font-weight:700;
-
-  cursor:pointer;
-
-  margin-top:18px;
-
-  border:none;
-
-  color:white;
-
-  font-size:15px;
-}
-
-.submit-button:hover{
-  opacity:.9;
-}
-
-.submit-button:disabled{
-  opacity:.5;
-
-  cursor:not-allowed;
-}
-
 .upload-note{
   color:#9999ad;
-
   font-size:12px;
-
   margin-top:12px;
 }
 
 .status{
   margin-top:15px;
-
   font-size:13px;
-
   color:#ddd;
-
-  min-height:20px;
 }
-
-
-/* MEMORY WALL */
 
 .memory-wall{
   columns:3 250px;
-
   column-gap:18px;
-
   margin-top:50px;
 }
 
 .memory{
   break-inside:avoid;
-
   margin-bottom:18px;
-
   padding:8px;
-
   border:1px solid var(--line);
-
   border-radius:18px;
-
   background:rgba(255,255,255,.05);
 }
 
 .memory img{
   width:100%;
-
   display:block;
-
   border-radius:13px;
 }
 
 .memory-info{
-  padding:12px 7px 5px;
+  padding:12px 6px 6px;
 }
 
-.memory-name{
+.memory-year{
+  color:#aaaabd;
+  font-size:12px;
+}
+
+.memory-team{
   font-weight:700;
-
   font-size:15px;
-}
-
-.memory-meta{
-  color:#9e9eb2;
-
-  font-size:11px;
-
   margin-top:3px;
 }
 
-.memory-message{
+.memory-story{
   color:var(--muted);
-
   font-size:13px;
-
-  margin-top:6px;
-
-  white-space:pre-wrap;
-
-  overflow-wrap:anywhere;
+  margin-top:5px;
 }
-
 
 /* END */
 
 .final{
   text-align:center;
-
   padding:130px 0;
 }
 
 .final p{
   color:var(--muted);
-
   max-width:680px;
-
   margin:auto;
 }
 
 .signature{
   margin-top:30px;
-
   font-weight:700;
 }
-
 
 /* FOOTER */
 
 footer{
   border-top:1px solid var(--line);
-
   padding:28px;
-
   text-align:center;
-
   color:#858598;
-
   font-size:12px;
 }
-
 
 /* MOBILE */
 
@@ -710,41 +477,29 @@ footer{
 </style>
 </head>
 
-
 <body>
-
-
-<!-- NAV -->
 
 <nav>
 
-  <div class="nav-inner wrap">
+<div class="nav-inner wrap">
 
-    <a class="logo" href="#top">
-      BE <span>EXTRAORDINARY</span>
-    </a>
+<a class="logo" href="#top">
+BE <span>EXTRAORDINARY</span>
+</a>
 
-    <div class="navlinks">
+<div class="navlinks">
 
-      <a href="#journey">
-        Journey
-      </a>
+<a href="#journey">Journey</a>
 
-      <a href="#powers">
-        Superpowers
-      </a>
+<a href="#powers">Superpowers</a>
 
-      <a href="#people">
-        People
-      </a>
+<a href="#people">People</a>
 
-      <a href="#memories">
-        Memory Wall
-      </a>
+<a href="#memories">Memory Wall</a>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </nav>
 
@@ -756,52 +511,49 @@ footer{
 
 <section class="hero">
 
-  <div class="wrap hero-grid">
+<div class="wrap hero-grid">
 
-    <div>
+<div>
 
-      <span class="badge">
-        iNova Summer Internship Program 2026
-      </span>
+<span class="badge">
+iNova Summer Internship Program 2026
+</span>
 
-      <h1>
+<h1>
+Every superhero has an
+<span class="gradient">
+origin story.
+</span>
+</h1>
 
-        Every superhero has an
+<p class="hero-text">
 
-        <span class="gradient">
-          origin story.
-        </span>
+Mine started with an internship — and turned into a journey
+of learning, courage, connection and discovering what I can
+actually do.
 
-      </h1>
+</p>
 
-      <p class="hero-text">
+<div class="quote">
 
-        Mine started with an internship — and turned into a journey
-        of learning, courage, connection and discovering what I can
-        actually do.
+“Be Extraordinary” wasn't just a theme.
+It became a challenge to myself.
 
-      </p>
+</div>
 
-      <div class="quote">
-
-        “Be Extraordinary” wasn't just a theme.
-        It became a challenge to myself.
-
-      </div>
-
-    </div>
+</div>
 
 
-    <div class="hero-photo">
+<div class="hero-photo">
 
-      <img
-        src="https://raw.githubusercontent.com/zienabesam60-sudo/zienab-superpower-story/main/internship.jpg"
-        alt="iNova Summer Internship"
-      >
+<img
+src="https://raw.githubusercontent.com/zienabesam60-sudo/zienab-superpower-story/main/internship.jpg"
+alt="iNova Summer Internship"
+>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
@@ -810,119 +562,107 @@ footer{
 
 <section id="journey">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="kicker">
-      01 / The journey
-    </div>
+<div class="kicker">
+01 / The journey
+</div>
 
-    <h2>
+<h2>
 
-      From “I hope I can”
+From “I hope I can”
+<br>
+to “I did it.”
 
-      <br>
+</h2>
 
-      to “I did it.”
+<p class="lead">
 
-    </h2>
+I entered the internship wanting experience.
+I didn't expect the field to teach me so much about myself —
+especially when things didn't go exactly as planned.
 
-    <p class="lead">
-
-      I entered the internship wanting experience.
-      I didn't expect the field to teach me so much about myself —
-      especially when things didn't go exactly as planned.
-
-    </p>
+</p>
 
 
-    <div class="timeline">
+<div class="timeline">
 
 
-      <div class="step">
+<div class="step">
 
-        <h3>
-          The First Step
-        </h3>
+<h3>The First Step</h3>
 
-        <p>
+<p>
 
-          I walked into a new environment with excitement,
-          questions and a little fear of the unknown.
+I walked into a new environment with excitement,
+questions and a little fear of the unknown.
 
-        </p>
+</p>
 
-      </div>
+</div>
 
 
-      <div class="step">
+<div class="step">
 
-        <h3>
-          Stepping Into the Field
-        </h3>
+<h3>Stepping Into the Field</h3>
 
-        <p>
+<p>
 
-          Real conversations, real doctors, real feedback.
-          Every visit pushed me to communicate better and think faster.
+Real conversations, real doctors, real feedback.
+Every visit pushed me to communicate better and think faster.
 
-        </p>
+</p>
 
-      </div>
+</div>
 
 
-      <div class="step">
+<div class="step">
 
-        <h3>
-          Meeting the Real Heroes
-        </h3>
+<h3>Meeting the Real Heroes</h3>
 
-        <p>
+<p>
 
-          I discovered that the internship wasn't only about products
-          or targets. It was about people — the people who challenged
-          me, helped me and believed in me.
+I discovered that the internship wasn't only about products
+or targets. It was about people — the people who challenged
+me, helped me and believed in me.
 
-        </p>
+</p>
 
-      </div>
+</div>
 
 
-      <div class="step">
+<div class="step">
 
-        <h3>
-          Discovering My Superpowers
-        </h3>
+<h3>Discovering My Superpowers</h3>
 
-        <p>
+<p>
 
-          Rejection stopped feeling like a personal rejection.
-          A difficult day became a lesson.
-          And every small win became proof that I was growing.
+Rejection stopped feeling like a personal rejection.
+A difficult day became a lesson.
+And every small win became proof that I was growing.
 
-        </p>
+</p>
 
-      </div>
+</div>
 
 
-      <div class="step">
+<div class="step">
 
-        <h3>
-          Becoming Extraordinary
-        </h3>
+<h3>Becoming Extraordinary</h3>
 
-        <p>
+<p>
 
-          I learned that being extraordinary isn't about being perfect.
-          It's about showing up, adapting, connecting and refusing to stop.
+I learned that being extraordinary isn't about being perfect.
+It's about showing up, adapting, connecting and refusing to stop.
 
-        </p>
+</p>
 
-      </div>
+</div>
 
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
@@ -931,114 +671,92 @@ footer{
 
 <section id="powers">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="kicker">
-      02 / My superpowers
-    </div>
+<div class="kicker">
+02 / My superpowers
+</div>
 
-    <h2>
+<h2>
 
-      The skills I didn't know
+The skills I didn't know
+<br>
+I was building.
 
-      <br>
-
-      I was building.
-
-    </h2>
+</h2>
 
 
-    <div class="powers">
+<div class="powers">
 
 
-      <div class="power">
+<div class="power">
 
-        <div class="power-icon">
-          💬
-        </div>
+<div class="power-icon">💬</div>
 
-        <h3>
-          Communication
-        </h3>
+<h3>Communication</h3>
 
-        <p>
-          Turning conversations into meaningful connections.
-        </p>
+<p>
+Turning conversations into meaningful connections.
+</p>
 
-      </div>
+</div>
 
 
-      <div class="power">
+<div class="power">
 
-        <div class="power-icon">
-          ⚡
-        </div>
+<div class="power-icon">⚡</div>
 
-        <h3>
-          Confidence
-        </h3>
+<h3>Confidence</h3>
 
-        <p>
-          Speaking up even when my voice was shaking.
-        </p>
+<p>
+Speaking up even when my voice was shaking.
+</p>
 
-      </div>
+</div>
 
 
-      <div class="power">
+<div class="power">
 
-        <div class="power-icon">
-          🕷️
-        </div>
+<div class="power-icon">🕷️</div>
 
-        <h3>
-          Resilience
-        </h3>
+<h3>Resilience</h3>
 
-        <p>
-          Learning that “no” is feedback, not a finish line.
-        </p>
+<p>
+Learning that “no” is feedback, not a finish line.
+</p>
 
-      </div>
+</div>
 
 
-      <div class="power">
+<div class="power">
 
-        <div class="power-icon">
-          🧭
-        </div>
+<div class="power-icon">🧭</div>
 
-        <h3>
-          Leadership
-        </h3>
+<h3>Leadership</h3>
 
-        <p>
-          Taking initiative instead of waiting for the perfect moment.
-        </p>
+<p>
+Taking initiative instead of waiting for the perfect moment.
+</p>
 
-      </div>
+</div>
 
 
-      <div class="power">
+<div class="power">
 
-        <div class="power-icon">
-          🤝
-        </div>
+<div class="power-icon">🤝</div>
 
-        <h3>
-          Connection
-        </h3>
+<h3>Connection</h3>
 
-        <p>
-          Realizing people can become the best part of a journey.
-        </p>
+<p>
+Realizing people can become the best part of a journey.
+</p>
 
-      </div>
+</div>
 
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
@@ -1047,255 +765,199 @@ footer{
 
 <section id="people">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="kicker">
-      03 / The people
-    </div>
+<div class="kicker">
+03 / The people
+</div>
 
-    <h2>
+<h2>
 
-      I came for the internship.
+I came for the internship.
+<br>
 
-      <br>
+<span class="gradient">
+I stayed for the people.
+</span>
 
-      <span class="gradient">
-        I stayed for the people.
-      </span>
-
-    </h2>
-
-
-    <p class="lead">
-
-      One of the most unexpected parts of this journey was meeting
-      people from different places — from Gharbia to Cairo, Fayoum,
-      Kafr El-Sheikh, Sohag and Minya.
-      Different stories, different personalities, one shared experience.
-
-    </p>
+</h2>
 
 
-    <div class="people-grid">
+<p class="lead">
+
+One of the most unexpected parts of this journey was meeting
+people from different places — from Gharbia to Cairo, Fayoum,
+Kafr El-Sheikh, Sohag and Minya.
+Different stories, different personalities, one shared experience.
+
+</p>
 
 
-      <div class="gallery">
+<div class="people-grid">
 
 
-        <div>
-
-          <img
-            class="tall"
-            src="https://raw.githubusercontent.com/zienabesam60-sudo/zienab-superpower-story/main/people.jpg"
-            alt="Internship friends"
-          >
-
-        </div>
+<div class="gallery">
 
 
-        <div>
+<div>
 
-          <img
-            src="https://raw.githubusercontent.com/zienabesam60-sudo/zienab-superpower-story/main/mirror.jpg"
-            alt="Internship memory"
-          >
+<img
+class="tall"
+src="https://raw.githubusercontent.com/zienabesam60-sudo/zienab-superpower-story/main/people.jpg"
+alt="Internship friends"
+>
 
-        </div>
-
-
-        <div>
-
-          <img
-            src="https://raw.githubusercontent.com/zienabesam60-sudo/zienab-superpower-story/main/friendship.jpg"
-            alt="Friendship memory"
-          >
-
-        </div>
+</div>
 
 
-      </div>
+<div>
+
+<img
+src="https://raw.githubusercontent.com/zienabesam60-sudo/zienab-superpower-story/main/mirror.jpg"
+alt="Internship memory"
+>
+
+</div>
 
 
-      <div class="story-card">
+<div>
 
-        <blockquote>
+<img
+src="https://raw.githubusercontent.com/zienabesam60-sudo/zienab-superpower-story/main/friendship.jpg"
+alt="Friendship memory"
+>
 
-          “I came for the internship.
-
-          <br>
-
-          I left with people who became part of my story.”
-
-        </blockquote>
+</div>
 
 
-        <p>
-
-          And that's the part I never want to forget:
-          the people who made the waiting, the pressure,
-          the new places and the long days feel lighter.
-
-        </p>
-
-      </div>
+</div>
 
 
-    </div>
+<div class="story-card">
 
-  </div>
+<blockquote>
+
+“I came for the internship.
+<br>
+I left with people who became part of my story.”
+
+</blockquote>
+
+
+<p>
+
+And that's the part I never want to forget:
+the people who made the waiting, the pressure,
+the new places and the long days feel lighter.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- MEMORY WALL -->
 
-<section
-  id="memories"
-  class="memory-section"
+<section id="memories" class="memory-section">
+
+<div class="wrap">
+
+
+<div class="memory-header">
+
+<div class="kicker">
+04 / The memory wall
+</div>
+
+
+<h2>
+
+Your memory
+<span class="gradient">
+belongs here.
+</span>
+
+</h2>
+
+
+<p>
+
+Were you part of an internship?
+Did you attend iNova Summer Internship in previous years?
+Or do you simply have a memory you want to keep alive?
+
+</p>
+
+
+<p>
+
+Upload your photo and become part of the story. ❤️
+
+</p>
+
+</div>
+
+
+<!-- UPLOAD -->
+
+<div class="upload-box">
+
+<strong>
+Add your internship memory 📸
+</strong>
+
+<br>
+
+
+<label
+class="upload-button"
+for="photoInput"
 >
 
-  <div class="wrap">
++ Add Your Memory
+
+</label>
 
 
-    <div class="memory-header">
-
-      <div class="kicker">
-        04 / The memory wall
-      </div>
-
-      <h2>
-
-        Your memory
-
-        <span class="gradient">
-          belongs here.
-        </span>
-
-      </h2>
+<input
+id="photoInput"
+type="file"
+accept="image/*"
+>
 
 
-      <p>
+<div class="upload-note">
 
-        Were you part of an internship?
-        Did you attend iNova Summer Internship in previous years?
-        Or do you simply have a memory you want to keep alive?
+JPG, PNG or WEBP • Maximum 10 MB
 
-      </p>
+</div>
 
 
-      <p>
+<div
+id="status"
+class="status"
+></div>
 
-        Upload your photo and become part of the story. ❤️
-
-      </p>
-
-    </div>
-
-
-    <!-- FORM -->
-
-    <div class="upload-box">
+</div>
 
 
-      <strong>
-        Add your internship memory 📸
-      </strong>
+<!-- MEMORY WALL -->
+
+<div
+id="memoryWall"
+class="memory-wall"
+>
+
+</div>
 
 
-      <input
-        id="nameInput"
-        class="form-input"
-        type="text"
-        maxlength="60"
-        placeholder="Your name ✨"
-      >
-
-
-      <input
-        id="yearInput"
-        class="form-input"
-        type="text"
-        maxlength="20"
-        placeholder="Internship year (e.g. 2026)"
-      >
-
-
-      <input
-        id="teamInput"
-        class="form-input"
-        type="text"
-        maxlength="60"
-        placeholder="Your team (optional)"
-      >
-
-
-      <textarea
-        id="messageInput"
-        class="form-textarea"
-        maxlength="300"
-        placeholder="Tell us about your memory... 💭"
-      ></textarea>
-
-
-      <label
-        class="upload-button"
-        for="photoInput"
-      >
-
-        📸 Choose Your Photo
-
-      </label>
-
-
-      <input
-        id="photoInput"
-        type="file"
-        accept="image/jpeg,image/png,image/webp"
-      >
-
-
-      <div
-        id="fileName"
-        class="file-name"
-      ></div>
-
-
-      <button
-        id="submitMemory"
-        class="submit-button"
-        type="button"
-      >
-
-        Add Your Memory ❤️
-
-      </button>
-
-
-      <div class="upload-note">
-
-        JPG, PNG or WEBP • Maximum 10 MB
-
-      </div>
-
-
-      <div
-        id="status"
-        class="status"
-      ></div>
-
-
-    </div>
-
-
-    <!-- MEMORY WALL -->
-
-    <div
-      id="memoryWall"
-      class="memory-wall"
-    ></div>
-
-
-  </div>
+</div>
 
 </section>
 
@@ -1304,40 +966,42 @@ footer{
 
 <section class="final">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="kicker">
-      05 / The story continues
-    </div>
-
-    <h2>
-
-      One internship.
-
-      <br>
-
-      <span class="gradient">
-        Hundreds of memories.
-      </span>
-
-    </h2>
+<div class="kicker">
+05 / The story continues
+</div>
 
 
-    <p>
+<h2>
 
-      My superpower was never one thing.
-      It was the courage to start, the resilience to continue,
-      the confidence to speak, and the ability to connect with
-      people along the way.
+One internship.
+<br>
 
-    </p>
+<span class="gradient">
+Hundreds of memories.
+</span>
+
+</h2>
 
 
-    <div class="signature">
-      Be Extraordinary. ♥
-    </div>
+<p>
 
-  </div>
+My superpower was never one thing.
+It was the courage to start, the resilience to continue,
+the confidence to speak, and the ability to connect with
+people along the way.
+
+</p>
+
+
+<div class="signature">
+
+Be Extraordinary. ♥️
+
+</div>
+
+</div>
 
 </section>
 
@@ -1347,605 +1011,456 @@ footer{
 
 <footer>
 
-  Be Extraordinary • iNova Summer Internship Program 2026
+Be Extraordinary • iNova Summer Internship Program 2026
 
 </footer>
 
 
 <script>
 
-/* ==================================
+/* ==============================
    SUPABASE
-================================== */
+============================== */
 
 const SUPABASE_URL =
-  "https://kgrerxefhsqlifcryruq.supabase.co";
+"https://kgrerxefhsqlifcryruq.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_wzMgrxevJGf4RL63Of223A_0zQ3zqXg";
+"sb_publishable_wzMgrxevJGf4RL63Of223A_0zQ3zqXg";
 
 const BUCKET =
-  "internship-memories";
+"internship-memories";
+
+/* IMPORTANT:
+   Your Supabase table name
+*/
 
 const TABLE =
-  "memories";
+"memories";
 
 
 const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
-
-
-/* ==================================
-   ELEMENTS
-================================== */
-
-const nameInput =
-  document.getElementById("nameInput");
-
-const yearInput =
-  document.getElementById("yearInput");
-
-const teamInput =
-  document.getElementById("teamInput");
-
-const messageInput =
-  document.getElementById("messageInput");
-
-const photoInput =
-  document.getElementById("photoInput");
-
-const submitButton =
-  document.getElementById("submitMemory");
-
-const memoryWall =
-  document.getElementById("memoryWall");
-
-const statusText =
-  document.getElementById("status");
-
-const fileNameText =
-  document.getElementById("fileName");
-
-
-/* ==================================
-   FILE NAME
-================================== */
-
-photoInput.addEventListener(
-  "change",
-  function(){
-
-    const file =
-      this.files[0];
-
-    if(file){
-
-      fileNameText.textContent =
-        "Selected: " + file.name;
-
-    }else{
-
-      fileNameText.textContent =
-        "";
-
-    }
-
-  }
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
 );
 
 
-/* ==================================
+/* ==============================
+   ELEMENTS
+============================== */
+
+const photoInput =
+document.getElementById("photoInput");
+
+const memoryWall =
+document.getElementById("memoryWall");
+
+const statusText =
+document.getElementById("status");
+
+
+/* ==============================
    SHOW MEMORY
-================================== */
+============================== */
 
 function showMemory(memory){
 
-  const card =
-    document.createElement("div");
+const card =
+document.createElement("div");
 
-  card.className =
-    "memory";
-
-
-  /* IMAGE */
-
-  if(memory.image){
-
-    const img =
-      document.createElement("img");
-
-    img.src =
-      memory.image;
-
-    img.loading =
-      "lazy";
-
-    img.alt =
-      "Internship memory";
-
-    card.appendChild(img);
-
-  }
+card.className =
+"memory";
 
 
-  /* INFO */
+const img =
+document.createElement("img");
 
-  const info =
-    document.createElement("div");
+img.src =
+memory.image;
 
-  info.className =
-    "memory-info";
+img.loading =
+"lazy";
 
-
-  /* NAME */
-
-  if(memory.name){
-
-    const name =
-      document.createElement("div");
-
-    name.className =
-      "memory-name";
-
-    name.textContent =
-      memory.name;
-
-    info.appendChild(name);
-
-  }
+img.alt =
+memory.story ||
+"Internship memory";
 
 
-  /* YEAR */
-
-  if(memory.year){
-
-    const year =
-      document.createElement("div");
-
-    year.className =
-      "memory-meta";
-
-    year.textContent =
-      memory.year +
-      (memory.team
-        ? " • " + memory.team
-        : "");
-
-    info.appendChild(year);
-
-  }
+card.appendChild(img);
 
 
-  /* STORY */
+/* INFO */
 
-  if(memory.story){
+if(
+memory.year ||
+memory.team ||
+memory.story
+){
 
-    const story =
-      document.createElement("div");
+const info =
+document.createElement("div");
 
-    story.className =
-      "memory-message";
-
-    story.textContent =
-      memory.story;
-
-    info.appendChild(story);
-
-  }
+info.className =
+"memory-info";
 
 
-  card.appendChild(info);
+if(memory.year){
 
+const year =
+document.createElement("div");
 
-  memoryWall.appendChild(card);
+year.className =
+"memory-year";
+
+year.textContent =
+memory.year;
+
+info.appendChild(year);
 
 }
 
 
-/* ==================================
-   LOAD MEMORIES FROM DATABASE
-================================== */
+if(memory.team){
+
+const team =
+document.createElement("div");
+
+team.className =
+"memory-team";
+
+team.textContent =
+memory.team;
+
+info.appendChild(team);
+
+}
+
+
+if(memory.story){
+
+const story =
+document.createElement("div");
+
+story.className =
+"memory-story";
+
+story.textContent =
+memory.story;
+
+info.appendChild(story);
+
+}
+
+
+card.appendChild(info);
+
+}
+
+
+memoryWall.prepend(card);
+
+}
+
+
+/* ==============================
+   LOAD MEMORIES
+============================== */
 
 async function loadMemories(){
 
-  memoryWall.innerHTML = "";
+memoryWall.innerHTML = "";
 
-  statusText.textContent =
-    "Loading memories...";
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from(TABLE)
-    .select(
-      "uuid,text,year,Team,Story,Image,Created"
-    )
-    .order(
-      "Created",
-      {
-        ascending:false
-      }
-    );
+statusText.textContent =
+"Loading memories... ❤️";
 
 
-  if(error){
-
-    console.error(
-      "DATABASE LOAD ERROR:",
-      error
-    );
-
-    statusText.textContent =
-      "Couldn't load memories right now.";
-
-    return;
-
-  }
+const {
+data,
+error
+} =
+await supabaseClient
+.from(TABLE)
+.select("*")
+.order("created", {
+ascending:false
+});
 
 
-  statusText.textContent =
-    "";
+if(error){
 
+console.error(
+"LOAD ERROR:",
+error
+);
 
-  if(!data ||
-     data.length === 0){
+statusText.textContent =
+"Couldn't load memories right now.";
 
-    return;
-
-  }
-
-
-  data.forEach(
-    function(row){
-
-      if(!row.Image){
-
-        return;
-
-      }
-
-
-      showMemory({
-
-        name:
-          row.text,
-
-        year:
-          row.year,
-
-        team:
-          row.Team,
-
-        story:
-          row.Story,
-
-        image:
-          row.Image
-
-      });
-
-    }
-  );
+return;
 
 }
 
 
-/* ==================================
-   UPLOAD MEMORY
-================================== */
+if(
+!data ||
+data.length === 0
+){
 
-submitButton.addEventListener(
-  "click",
-  async function(){
+statusText.textContent =
+"No memories yet. Be the first one! ❤️";
 
-    const name =
-      nameInput.value.trim();
+return;
 
-    const year =
-      yearInput.value.trim();
+}
 
-    const team =
-      teamInput.value.trim();
 
-    const story =
-      messageInput.value.trim();
-
-    const file =
-      photoInput.files[0];
-
-
-    /* VALIDATION */
-
-    if(!name){
-
-      statusText.textContent =
-        "Please enter your name ✨";
-
-      nameInput.focus();
-
-      return;
-
-    }
-
-
-    if(!year){
-
-      statusText.textContent =
-        "Please enter the internship year.";
-
-      yearInput.focus();
-
-      return;
-
-    }
-
-
-    if(!story){
-
-      statusText.textContent =
-        "Please write your memory 💭";
-
-      messageInput.focus();
-
-      return;
-
-    }
-
-
-    if(!file){
-
-      statusText.textContent =
-        "Please choose a photo 📸";
-
-      return;
-
-    }
-
-
-    if(!file.type.startsWith("image/")){
-
-      statusText.textContent =
-        "Please choose an image.";
-
-      return;
-
-    }
-
-
-    if(
-      file.size >
-      10 * 1024 * 1024
-    ){
-
-      statusText.textContent =
-        "Image must be smaller than 10 MB.";
-
-      return;
-
-    }
-
-
-    /* DISABLE */
-
-    submitButton.disabled =
-      true;
-
-    statusText.textContent =
-      "Uploading your memory... 📸";
-
-
-    try{
-
-
-      /* ==============================
-         UNIQUE FILE NAME
-      ============================== */
-
-      const extension =
-        file.name
-          .split(".")
-          .pop()
-          .toLowerCase();
-
-
-      const fileName =
-        Date.now() +
-        "-" +
-        Math.random()
-          .toString(36)
-          .substring(2,8) +
-        "." +
-        extension;
-
-
-      /* ==============================
-         UPLOAD IMAGE
-      ============================== */
-
-      const {
-        error:uploadError
-      } =
-      await supabaseClient
-        .storage
-        .from(BUCKET)
-        .upload(
-          fileName,
-          file,
-          {
-            cacheControl:"3600",
-            upsert:false,
-            contentType:file.type
-          }
-        );
-
-
-      if(uploadError){
-
-        throw uploadError;
-
-      }
-
-
-      /* ==============================
-         PUBLIC URL
-      ============================== */
-
-      const {
-        data:publicData
-      } =
-      supabaseClient
-        .storage
-        .from(BUCKET)
-        .getPublicUrl(
-          fileName
-        );
-
-
-      const imageUrl =
-        publicData?.publicUrl;
-
-
-      if(!imageUrl){
-
-        throw new Error(
-          "Could not create image URL."
-        );
-
-      }
-
-
-      /* ==============================
-         INSERT DATABASE ROW
-      ============================== */
-
-      const {
-        data:insertedData,
-        error:databaseError
-      } =
-      await supabaseClient
-        .from(TABLE)
-        .insert({
-
-          text:
-            name,
-
-          year:
-            year,
-
-          Team:
-            team,
-
-          Story:
-            story,
-
-          Image:
-            imageUrl
-
-        })
-        .select(
-          "uuid,text,year,Team,Story,Image,Created"
-        )
-        .single();
-
-
-      if(databaseError){
-
-        console.error(
-          "DATABASE INSERT ERROR:",
-          databaseError
-        );
-
-        throw databaseError;
-
-      }
-
-
-      /* ==============================
-         SHOW MEMORY
-      ============================== */
-
-      if(insertedData){
-
-        showMemory({
-
-          name:
-            insertedData.text,
-
-          year:
-            insertedData.year,
-
-          team:
-            insertedData.Team,
-
-          story:
-            insertedData.Story,
-
-          image:
-            insertedData.Image
-
-        });
-
-      }
-
-
-      /* ==============================
-         RESET FORM
-      ============================== */
-
-      nameInput.value =
-        "";
-
-      yearInput.value =
-        "";
-
-      teamInput.value =
-        "";
-
-      messageInput.value =
-        "";
-
-      photoInput.value =
-        "";
-
-      fileNameText.textContent =
-        "";
-
-
-      statusText.textContent =
-        "Your memory is now on the wall! ❤️";
-
-
-    }catch(error){
-
-      console.error(
-        "MEMORY ERROR:",
-        error
-      );
-
-
-      statusText.textContent =
-        "Something went wrong. Please try again.";
-
-    }finally{
-
-      submitButton.disabled =
-        false;
-
-    }
-
-  }
+data.forEach(
+memory =>
+showMemory(memory)
 );
 
 
-/* ==================================
+statusText.textContent =
+"";
+
+}
+
+
+/* ==============================
+   UPLOAD
+============================== */
+
+photoInput.addEventListener(
+"change",
+async function(){
+
+const file =
+this.files[0];
+
+if(!file)
+return;
+
+
+/* CHECK IMAGE */
+
+if(
+!file.type.startsWith("image/")
+){
+
+statusText.textContent =
+"Please choose an image.";
+
+this.value = "";
+
+return;
+
+}
+
+
+/* CHECK SIZE */
+
+if(
+file.size >
+10 * 1024 * 1024
+){
+
+statusText.textContent =
+"Image must be smaller than 10 MB.";
+
+this.value = "";
+
+return;
+
+}
+
+
+statusText.textContent =
+"Uploading your memory... 📸";
+
+
+/* FILE NAME */
+
+const extension =
+file.name
+.split(".")
+.pop()
+.toLowerCase();
+
+
+const fileName =
+Date.now() +
+"-" +
+Math.random()
+.toString(36)
+.substring(2,8) +
+"." +
+extension;
+
+
+/* ==============================
+   UPLOAD IMAGE
+============================== */
+
+const {
+error:
+uploadError
+} =
+await supabaseClient
+.storage
+.from(BUCKET)
+.upload(
+fileName,
+file,
+{
+cacheControl:"3600",
+upsert:false,
+contentType:file.type
+}
+);
+
+
+if(uploadError){
+
+console.error(
+"UPLOAD ERROR:",
+uploadError
+);
+
+statusText.textContent =
+"Upload failed. Please check Supabase Storage policies.";
+
+this.value = "";
+
+return;
+
+}
+
+
+/* ==============================
+   PUBLIC URL
+============================== */
+
+const {
+data:
+publicData
+} =
+supabaseClient
+.storage
+.from(BUCKET)
+.getPublicUrl(fileName);
+
+
+const imageURL =
+publicData.publicUrl;
+
+
+/* ==============================
+   ASK DETAILS
+============================== */
+
+const year =
+prompt(
+"What year was this memory? ❤️"
+);
+
+
+const team =
+prompt(
+"What was your team / area?"
+);
+
+
+const story =
+prompt(
+"Tell us a short story about this memory ✨"
+);
+
+
+/* ==============================
+   INSERT DATABASE
+============================== */
+
+const {
+data:
+insertedMemory,
+error:
+insertError
+} =
+await supabaseClient
+.from(TABLE)
+.insert({
+
+uuid:
+crypto.randomUUID(),
+
+year:
+year || "2026",
+
+team:
+team || "",
+
+story:
+story || "",
+
+image:
+imageURL
+
+})
+.select()
+.single();
+
+
+if(insertError){
+
+console.error(
+"DATABASE ERROR:",
+insertError
+);
+
+
+/* DELETE IMAGE */
+
+await supabaseClient
+.storage
+.from(BUCKET)
+.remove([
+fileName
+]);
+
+
+statusText.textContent =
+"Memory couldn't be saved. Please try again.";
+
+this.value = "";
+
+return;
+
+}
+
+
+/* ==============================
+   SHOW
+============================== */
+
+showMemory(
+insertedMemory
+);
+
+
+statusText.textContent =
+"Your memory is now on the wall! ❤️";
+
+
+this.value = "";
+
+}
+);
+
+
+/* ==============================
    START
-================================== */
+============================== */
 
 loadMemories();
 
